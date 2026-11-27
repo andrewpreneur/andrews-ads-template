@@ -19,7 +19,7 @@ Hourly refresh of the Ads HQ page. READ-ONLY except step 2. Keep this run short 
 ```
 Daily Meta ads check and self-optimization. Follow CLAUDE.md, especially the risk scale: 0-7 do it yourself, test it, read it back from Meta and log proof; 8-10 recommend only and wait for the owner's yes in their own words.
 0. git checkout main && git pull origin main.
-1. Read CLAUDE.md, client/config.json, client/business/, .claude/skills/meta-ads-mastery/SKILL.md, docs/context (newest) and the newest reports/.
+1. Read CLAUDE.md, client/config.json, client/business/, .claude/skills/meta-ads-operator/SKILL.md, docs/context (newest) and the newest reports/.
 2. ./scripts/meta-kit.sh doctor then ./run.sh daily-check. If the token fails, stop and tell the owner in one line how to fix it.
 3. cd ops && node copilot-snapshot.js copilot/data.json && node levers-snapshot.js. Judge every live ad set on 7-day cost per result against client/config.json tiers. Armed ad sets = information only.
 4. Self-optimize: judge every live ad with the skill's rules (hands-off windows, judge after 3-5x target cost, fast-kill at 2-3x with zero). For a loser: pause that one ad if its ad set keeps other ads running, and rotate in a replacement that passes all 4 creative checks (build it in a proven style, render, look at the full-size PNG, log the checks, create PAUSED, verify, send it to the owner; it goes live 24 h later unless they object). One move per ad set at a time. Log every change in reports/YYYY-MM-DD-changes.md.

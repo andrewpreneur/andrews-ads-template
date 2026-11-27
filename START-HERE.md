@@ -34,18 +34,18 @@ You don't need to clone anything to your computer. Claude Code on the web clones
 5. Click **Save**. Then start a **new session**: pick the `<business>-ads` repo and the `<Business> ads` environment.
    Settings only reach sessions started after you save.
 
-## Install the Meta Ads Mastery skill (3 minutes, buyers only)
+## Install the Meta Ads Operator skill (3 minutes, buyers only)
 The playbook Claude follows (testing, kill/scale rules, creative, tracking) is a **paid add-on**, so it is not in this public
 template. You get it as a zip after purchase. Put it in **your private copy** of the repo, where every session can load it:
-1. Unzip it. You get a folder named `meta-ads-mastery` with `SKILL.md` inside.
+1. Unzip it. You get a folder named `meta-ads-operator` with `SKILL.md` inside.
 2. In your repo on GitHub, click **Add file → Upload files**, then drag the files in so they land in
-   `.claude/skills/meta-ads-mastery/` (the path must end with `.claude/skills/meta-ads-mastery/SKILL.md`).
+   `.claude/skills/meta-ads-operator/` (the path must end with `.claude/skills/meta-ads-operator/SKILL.md`).
    Easier: start a session and tell Claude "install the skill" after uploading the zip to the chat; it puts the files there and commits them.
-3. Start a new session and type `/`: you should see `meta-ads-mastery` and `ghl-ads` in the list.
+3. Start a new session and type `/`: you should see `meta-ads-operator` and `ghl-ads` in the list.
 
 Keep your copy **Private**: the skill is licensed to you and must not be shared or published.
 **ghl-ads** (GoHighLevel Ad Manager) already ships in the repo, nothing to install.
-Working locally instead? Put the folder in `~/.claude/skills/meta-ads-mastery/` to use it in every project.
+Working locally instead? Put the folder in `~/.claude/skills/meta-ads-operator/` to use it in every project.
 
 ## Step 3. Connect the ad account
 

@@ -3,9 +3,9 @@
 This repo runs one business's Meta (Facebook + Instagram) ads with Claude. Read this file first in every session, then:
 1. `client/config.json`: the business, its Meta IDs, what counts as a result, the economics, tiers and budget caps.
 2. `client/business/*.md`: identity, voice, ideal client, offers, competitors, design (the "Second Brain").
-3. `.claude/skills/meta-ads-mastery/SKILL.md`: the playbook (testing, tiers, scaling, creative). Use `lessons/INDEX.md` for detail.
+3. `.claude/skills/meta-ads-operator/SKILL.md`: the playbook (testing, tiers, scaling, creative). Use `lessons/INDEX.md` for detail.
    It is a paid add-on and is not in the public template. If that folder is missing, tell the owner to install it
-   (START-HERE.md, "Install the Meta Ads Mastery skill") and don't launch or optimize ads until it is there.
+   (START-HERE.md, "Install the Meta Ads Operator skill") and don't launch or optimize ads until it is there.
 4. `docs/knowledge/`: Meta traps to avoid. `docs/context/` (newest file): the current state of the account.
 5. The newest files in `reports/`.
 
@@ -101,7 +101,7 @@ The page is `ops/copilot/page.html`. It draws everything from `data.json` (and `
 
 ## Repo map
 - `client/`: everything about this business (config, Second Brain docs, photos/logos/videos, offline results).
-- `skills/`: Meta Ads Mastery playbook + helper skills (copy, creative monitor, budget, pixel/CAPI, upload).
+- `skills/`: Meta Ads Operator playbook + helper skills (copy, creative monitor, budget, pixel/CAPI, upload).
 - `scripts/` + `run.sh`: the Meta Ads CLI kit (read-only reports: daily check, bleeders, winners, fatigue, pacing).
 - `ops/`: Node 18+ scripts, no installs needed. `lib.js` (Graph API v21), `copilot-snapshot.js` and `levers-snapshot.js`
   (HQ page data), `launch-ad.js <draft> [--dry]` (creates campaign → ad set → ads, PAUSED; always `--dry` first),

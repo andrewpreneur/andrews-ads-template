@@ -7,7 +7,7 @@ Paste everything between the lines into a new Claude Code session on your copy o
 Hi Claude. This repo runs my Facebook + Instagram ads. Please set me up, one step at a time and in plain language. I'm not
 very technical. Keep your messages short.
 
-1. Read CLAUDE.md, START-HERE.md, SETUP.md, client/config.json, client/business/, .claude/skills/meta-ads-mastery/SKILL.md (if it is missing, walk me through installing it first) and
+1. Read CLAUDE.md, START-HERE.md, SETUP.md, client/config.json, client/business/, .claude/skills/meta-ads-operator/SKILL.md (if it is missing, walk me through installing it first) and
    skills/ghl-ads/SKILL.md.
 2. Ask me which way we run ads: GoHighLevel Ad Manager or Meta direct. Record it in client/config.json → adsPath.
    - GHL: ask for my GHL Private Integration Token with the secure credential form (host services.leadconnectorhq.com,

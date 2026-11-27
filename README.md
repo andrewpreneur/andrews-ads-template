@@ -17,7 +17,7 @@ Follow **[START-HERE.md](START-HERE.md)**: 5 steps from zero to ads running, thr
 |---|---|
 | `CLAUDE.md` | The agent's rules: risk scale, approvals, creative checks, daily routine |
 | `client/` | Your business: config (IDs, results, economics, budget caps), Second Brain docs, photos/logos/videos |
-| `skills/` | `ghl-ads` (run ads through GoHighLevel's Ad Manager) + helper skills. The Meta Ads Mastery playbook is a paid add-on you install into `.claude/skills/` (see START-HERE) |
+| `skills/` | `ghl-ads` (run ads through GoHighLevel's Ad Manager) + helper skills. The Meta Ads Operator playbook is a paid add-on you install into `.claude/skills/` (see START-HERE) |
 | `scripts/`, `run.sh` | Read-only Meta reports: daily check, bleeders, winners, fatigue, pacing |
 | `ops/` | Scripts for the HQ page, launching ads (Meta: `launch-ad.js`; GHL: `ops/ghl/`), creative rendering |
 | `docs/` | Meta traps to avoid, competitor research, account context, routine prompts |
