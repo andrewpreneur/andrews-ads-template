@@ -90,7 +90,7 @@ table.lv td.k{max-width:420px}
 .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
 .cr{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
 .cr .img{aspect-ratio:1/1;background:var(--bg);display:grid;place-items:center;color:var(--muted);font-size:12px;max-width:100%}
-.cr .img img{width:100%;height:100%;object-fit:cover;display:block}
+.cr .img img,.cr .img video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
 .cr .cb{padding:12px;display:grid;gap:6px;align-content:start;min-width:0}
 .cr .nm{font:600 13px var(--body);overflow-wrap:anywhere}
 .cr .hl{font-size:13px;color:var(--muted);overflow-wrap:anywhere}
@@ -313,7 +313,8 @@ td.low{color:var(--bad);font-weight:600}
     var sg=$("suggestions");sg.textContent="";
     var wn=$("winners");wn.textContent="";
     (d.winners||[]).forEach(function(w){var c=el("div","cr");var im=el("div","img");
-      if(w.image){var i=document.createElement("img");i.src=w.image;i.alt=w.name;i.loading="lazy";im.appendChild(i)}else im.textContent="No preview";
+      if(w.video){var v=document.createElement("video");v.src=w.video;v.controls=true;v.muted=true;v.playsInline=true;v.preload="metadata";if(w.image)v.poster=w.image;v.onerror=function(){if(!w.image)return;var i=document.createElement("img");i.src=w.image;i.alt=w.name;v.replaceWith(i)};im.appendChild(v)}
+      else if(w.image){var i=document.createElement("img");i.src=w.image;i.alt=w.name;i.loading="lazy";im.appendChild(i)}else im.textContent="No preview";
       c.appendChild(im);var b=el("div","cb");b.appendChild(el("span","nm",w.name+(w.live?" · live":"")));b.appendChild(el("span","hl",w.campaign));
       var dl=document.createElement("dl");[["Spend",whole(w.spend)],["Results",String(w.leads)],["Cost each",money(w.costPerLead)],["CTR",w.ctr+"%"]].forEach(function(p){dl.appendChild(el("dt",null,p[0]));dl.appendChild(el("dd",null,p[1]))});b.appendChild(dl);
       var lk=el("div","hl");if(w.preview){var a=document.createElement("a");a.href=w.preview;a.target="_blank";a.rel="noopener";a.textContent="See the ad";lk.appendChild(a)}

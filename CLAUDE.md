@@ -94,6 +94,8 @@ The page is `ops/copilot/page.html`. It draws everything from `data.json` (and `
   Save the link in `client/config.json` → `links.hqPage` and commit.
 - Every refresh: Artifact `read` the page's `data.json` once, then publish to the same `url` with the new files.
 - `data.json` and `levers.json` are not committed (they change every hour).
+- The artifact sandbox blocks Meta's CDN: creative images are embedded as data URIs, and winner videos are saved to
+  `ops/copilot/videos/` (not committed). Publish any new `videos/<id>.mp4` with the daily refresh. Never put Meta image URLs in the page.
 - Approvals, to-dos, suggestions, the 6-week plan and the house rules live in `ops/copilot/plan.json`. Never mark an approval
   done unless Meta shows it done. Revenue the business reports goes in `ops/copilot/revenue.json` (never from the pixel).
 

@@ -118,13 +118,44 @@ function dayInTz(tz, offsetDays = 0) {
     .filter((r) => r.spend >= 40 && r.leads >= 3)
     .map((r) => ({ ...r, costPerLead: round(r.spend / r.leads) }))
     .sort((a, b) => a.costPerLead - b.costPerLead).slice(0, 8);
+  // Images are embedded as data URIs and videos saved to copilot/videos/ (published next to the page): the artifact sandbox
+  // blocks Meta's CDN, so a plain fbcdn URL never loads there.
+  const asDataUri = async (url) => {
+    if (!url) return null;
+    try {
+      const res = await fetch(url);
+      if (!res.ok) return null;
+      const buf = Buffer.from(await res.arrayBuffer());
+      if (buf.length < 3000) return null; // Meta's grey placeholder
+      return `data:${res.headers.get("content-type") || "image/jpeg"};base64,${buf.toString("base64")}`;
+    } catch { return null; }
+  };
+  const vidDir = path.join(dir, "videos");
+  const saveVideo = async (videoId) => {
+    if (!videoId) return null;
+    const rel = `videos/${videoId}.mp4`, abs = path.join(dir, rel);
+    if (fs.existsSync(abs)) return rel;
+    try {
+      const v = await graph(videoId, { fields: "source" }, { token });
+      if (!v.source) return null;
+      const res = await fetch(v.source);
+      if (!res.ok) return null;
+      const buf = Buffer.from(await res.arrayBuffer());
+      if (buf.length > 15e6) return null; // too big for an artifact file
+      fs.mkdirSync(vidDir, { recursive: true });
+      fs.writeFileSync(abs, buf);
+      return rel;
+    } catch { return null; }
+  };
   const winners = [];
   for (const w of cands) {
-    const ad = await graph(w.id, { fields: "effective_status,preview_shareable_link,creative{thumbnail_url,image_url,object_story_spec,asset_feed_spec}" }, { token }).catch(() => ({}));
+    const ad = await graph(w.id, { fields: "effective_status,preview_shareable_link,creative.thumbnail_width(480).thumbnail_height(480){thumbnail_url,image_url,video_id,object_story_spec,asset_feed_spec}" }, { token }).catch(() => ({}));
     const c = ad.creative || {}, o = c.object_story_spec || {};
     const page = o.link_data?.link || o.video_data?.call_to_action?.value?.link || (c.asset_feed_spec?.link_urls || [])[0]?.website_url || null;
+    const videoIds = [o.video_data?.video_id, (c.asset_feed_spec?.videos || [])[0]?.video_id, c.video_id].filter(Boolean);
     winners.push({ ...w, live: ad.effective_status === "ACTIVE", preview: ad.preview_shareable_link || null,
-      image: c.image_url || c.thumbnail_url || null, page: page ? page.split("?")[0] : null });
+      image: (await asDataUri(c.thumbnail_url)) || (await asDataUri(c.image_url)),
+      video: await (async () => { for (const id of videoIds) { const v = await saveVideo(id); if (v) return v; } return null; })(), page: page ? page.split("?")[0] : null });
   }
 
   // Revenue is reported by the business (Stripe / CRM) in copilot/revenue.json; Meta adds the spend for the same dates.
