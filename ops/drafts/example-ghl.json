@@ -1,0 +1,21 @@
+{
+  "_purpose": "Example GHL draft (Path B). Build: node ops/ghl/build.js ops/drafts/example-ghl.json (drafts only, nothing spends). Publish only with the owner's yes: node ops/ghl/publish.js <campaignId> --yes. Budget is DOLLARS per day. pageId/pixelId come from client/config.json → meta unless set here.",
+  "campaign": { "name": "Example offer | B1 | Leads", "objective": "OUTCOME_LEADS", "specialAdCategories": ["NONE"] },
+  "adset": {
+    "name": "Example offer | Broad US",
+    "dailyBudget": 20,
+    "countries": ["US"],
+    "ageMin": 25,
+    "ageMax": 65,
+    "conversionLocation": "website",
+    "customEventType": "LEAD"
+  },
+  "link": "https://example.com/offer?utm_source=facebook&utm_medium=paid&utm_campaign=b1&utm_content={{ad.name}}",
+  "cta": "SIGN_UP",
+  "ads": [
+    { "name": "ex-tw1", "image": "../newads/png/ex-tw1.png", "headline": "Headline from your landing page", "description": "One short line",
+      "text": "Hook line that calls out who it's for.\n\nWhat they get, in the page's own words.\n\nTap Sign Up." },
+    { "name": "ex-rs1", "image": "../newads/png/ex-rs1.png", "headline": "Second angle headline", "description": "One short line",
+      "text": "A different angle on the same offer.\n\nTap Sign Up." }
+  ]
+}

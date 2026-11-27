@@ -1,0 +1,11 @@
+{
+  "_purpose": "Example static batch for ops/newads/render-statics.js. One entry per ad: format tweet | bold | list. Copy must come from the landing page or client/business (creative check 1). Render: node ops/newads/render-statics.js ops/drafts/example-statics.json",
+  "tweetMeta": "Free consultation · 15 min",
+  "tweetFoot": "Free consult &rarr; <em>Book yours</em>",
+  "cta_label": "Book My <em>Free Consult</em>",
+  "ads": [
+    { "name": "ex-tw1", "format": "tweet", "image": ["Homeowners: your roof doesn't have to leak to need help.", "We'll inspect it free and tell you straight what it needs.", "No pressure. No upsell."] },
+    { "name": "ex-rs1", "format": "bold", "image": { "tag": "FREE INSPECTION", "headline": "Leaks start<br><b>small</b>", "sub": "Get a free 15-minute roof check before the next storm." } },
+    { "name": "ex-ls1", "format": "list", "image": { "tag": "WHAT YOU GET", "headline": "Free<br><b>roof check</b>", "items": ["Photos of every problem", "A straight price", "No obligation"], "dark": true } }
+  ]
+}

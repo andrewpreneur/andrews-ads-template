@@ -1,0 +1,11 @@
+{
+  "_help": "Real numbers from the business (Stripe, CRM, books), never from the Meta pixel. Fill since/until (YYYY-MM-DD) and the totals; the snapshot adds Meta spend for the same dates.",
+  "since": null,
+  "until": null,
+  "adLeads": null,
+  "adCustomers": null,
+  "adRevenue": null,
+  "source": "",
+  "updatedAt": null,
+  "note": ""
+}

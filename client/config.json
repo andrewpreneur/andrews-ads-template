@@ -1,0 +1,69 @@
+{
+  "_help": "Fill this in during setup (see SETUP.md step 4). The scripts and the HQ page read it. No secrets here: the token lives only in the environment.",
+  "business": {
+    "name": "YOUR BUSINESS NAME",
+    "owner": "OWNER FIRST NAME",
+    "website": "https://example.com",
+    "stack": "e.g. Lovable pages, GoHighLevel CRM + SMS, Stripe, Supabase",
+    "face": {
+      "name": "OWNER FULL NAME",
+      "role": "Founder, YOUR BUSINESS NAME",
+      "_help": "Shown next to the headshot on tweet-style ads."
+    }
+  },
+  "adsPath": "ghl",
+  "_adsPathHelp": "ghl | meta-cli | both. ghl = build + publish through GoHighLevel Ad Manager (needs the GHL token + location ID). meta-cli = Graph API with a Meta system-user token. Pick in setup step 3.",
+  "ghl": {
+    "locationId": "YOUR_GHL_LOCATION_ID",
+    "_help": "GHL sub-account (location) ID: Settings → Business Profile, or the URL after /location/. Not a secret. The Private Integration Token is a network secret for services.leadconnectorhq.com, never in a file."
+  },
+  "meta": {
+    "adAccountId": "act_000000000000000",
+    "pixelId": "000000000000000",
+    "pageId": "000000000000000",
+    "instagramUserId": "",
+    "timezone": "America/Chicago"
+  },
+  "result": {
+    "_help": "What one result is, and which Meta event counts it. metaAction is one of: lead, complete_registration, contact, schedule, submit_application, omni_purchase, onsite_conversion.messaging_conversation_started_7d. Set offline to true if the real count comes from your CRM/Stripe (fill client/results.json) instead of the pixel.",
+    "name": "leads",
+    "metaAction": "lead",
+    "offline": false
+  },
+  "economics": {
+    "_help": "Value of one customer, breakeven cost per result, target cost per result. These set the tiers.",
+    "customerValue": 0,
+    "breakevenPerResult": 0,
+    "targetPerResult": 0
+  },
+  "tiers": {
+    "_help": "7-day cost per result. Below scaleBelow = scale; up to holdUpTo = hold; up to lowerUpTo = lower budget; above = kill. Leave 0 until the economics are known.",
+    "scaleBelow": 0,
+    "holdUpTo": 0,
+    "lowerUpTo": 0
+  },
+  "budget": {
+    "accountDailyCap": 0,
+    "agentCampaignsDailyCap": 0,
+    "agentCampaignPrefix": "",
+    "_prefixHelp": "Optional name prefix for the agent campaigns (e.g. [Claude]). Empty = none; the agent tracks its campaigns by id in agentCampaigns.",
+    "agentCampaigns": []
+  },
+  "offers": [
+    {
+      "_help": "One row per offer. match = a piece of the landing page URL (regex) that identifies it.",
+      "name": "Main offer",
+      "match": "example\\.com"
+    }
+  ],
+  "links": {
+    "hqPage": "",
+    "secondBrainFolder": "",
+    "landingPages": []
+  },
+  "design": {
+    "dark": "#0B1220",
+    "accent": "#1C8BFF",
+    "_help": "Ad colors for ops/newads/render-statics.js: dark ground + one accent, from the brand (client/business/design.md)."
+  }
+}

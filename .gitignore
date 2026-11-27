@@ -1,0 +1,11 @@
+.env
+ops/.env
+*.env
+ops/copilot/data.json
+ops/copilot/levers.json
+ops/data.js
+ops/newads/_*.html
+node_modules/
+.DS_Store
+__pycache__/
+local/

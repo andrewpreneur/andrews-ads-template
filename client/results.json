@@ -1,0 +1,5 @@
+{
+  "_help": "Only used when client/config.json result.offline is true. Real results counted outside Meta (CRM, Stripe, texts), by day (ad account time zone) then ad set id. Example: {\"2026-01-15\": {\"120000000000000\": 3}}",
+  "note": "",
+  "byDay": {}
+}

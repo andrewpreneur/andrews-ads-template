@@ -1,0 +1,18 @@
+{
+  "updated": "",
+  "goal": "Fill in during setup: the one goal for the next 6 weeks, e.g. \"Booked calls under $80 each, at $100/day\".",
+  "start": "",
+  "dates": "",
+  "approvals": [],
+  "todos": [],
+  "suggestions": [],
+  "weeks": [],
+  "rules": [
+    "Judge ad sets on 7-day cost per result, never on CTR or CPC alone.",
+    "One change at a time, then 3-5 days hands-off.",
+    "New campaigns, ad sets and ads are created PAUSED.",
+    "Never touch a working ad set: launch a new one instead.",
+    "Count only ad-sourced results.",
+    "Budget increases, turning things off, new spend and anything sent to customers need the owner's yes in their own words."
+  ]
+}

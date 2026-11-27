@@ -1,0 +1,41 @@
+{
+  "_purpose": "Example: one Leads campaign, one ad set optimizing for the Lead event on YOUR pixel, two image ads. Run with --dry first. Everything is created PAUSED.",
+  "status": "PAUSED",
+  "campaign": {
+    "name": "[Claude] Example offer | Test 1 | 01.01.2026",
+    "objective": "OUTCOME_LEADS",
+    "spend_cap_cents": 50000
+  },
+  "adsets": [
+    {
+      "name": "[Claude] Example offer | Broad US",
+      "daily_budget_cents": 2000,
+      "optimization_goal": "OFFSITE_CONVERSIONS",
+      "promoted_object": { "pixel_id": "YOUR_PIXEL_ID", "custom_event_type": "LEAD" },
+      "attribution_spec": [
+        { "event_type": "CLICK_THROUGH", "window_days": 7 },
+        { "event_type": "VIEW_THROUGH", "window_days": 1 }
+      ],
+      "targeting": {
+        "age_min": 25,
+        "age_max": 65,
+        "geo_locations": { "countries": ["US"], "location_types": ["home", "recent"] },
+        "targeting_automation": { "advantage_audience": 1 }
+      },
+      "ads": [
+        {
+          "name": "ex-1",
+          "creative": {
+            "link": "https://example.com/offer?utm_source=facebook&utm_medium=paid&utm_campaign=test1",
+            "message": "Primary text: the hook in the first line, then the promise and the next step.",
+            "headline": "Headline that matches the landing page",
+            "description": "Short line under the headline",
+            "image_path": "newads/png/ex-1.png",
+            "cta_type": "LEARN_MORE"
+          }
+        },
+        { "name": "ex-2 (reuse an existing creative)", "creative_id": "PASTE_AN_EXISTING_CREATIVE_ID" }
+      ]
+    }
+  ]
+}
